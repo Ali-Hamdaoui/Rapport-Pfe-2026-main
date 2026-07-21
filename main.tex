@@ -1,0 +1,203 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ============================================================
+% ENCODAGE, LANGUE ET TYPOGRAPHIE
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{ragged2e}
+
+% ============================================================
+% MISE EN PAGE
+% ============================================================
+\usepackage{geometry}
+\geometry{
+    top=2.4cm,
+    bottom=2.4cm,
+    left=3cm,
+    right=2.5cm,
+    headheight=17pt,
+    headsep=0.7cm,
+    footskip=1.1cm
+}
+\setstretch{1.12}
+\setlength{\parindent}{0.8cm}
+\setlength{\parskip}{0.18em}
+
+% ============================================================
+% FIGURES, TABLEAUX ET LISTES
+% ============================================================
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{chngcntr}
+
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\arraystretch}{1.25}
+\captionsetup{font=small,labelfont=bf,justification=centering}
+\setlist[itemize]{leftmargin=1.1cm,itemsep=0.25em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.1cm,itemsep=0.25em,topsep=0.35em}
+
+% ============================================================
+% COULEURS ET DIAGRAMMES
+% ============================================================
+\usepackage{xcolor}
+\definecolor{cgired}{RGB}{192,0,45}
+\definecolor{cgidark}{RGB}{31,42,55}
+\definecolor{cgiblue}{RGB}{26,71,120}
+\definecolor{cgilight}{RGB}{226,231,237}
+\definecolor{cgigray}{RGB}{91,101,115}
+\definecolor{emsigreen}{RGB}{0,150,90}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes.geometric,fit,backgrounds}
+
+% ============================================================
+% TITRES ET EN-TÊTES
+% ============================================================
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\bfseries\color{cgidark}}
+  {\filleft\fontsize{48}{48}\selectfont\color{cgired}\thechapter}
+  {-1.2ex}
+  {\titlerule[1.1pt]\vspace{1ex}\Huge}
+  [\vspace{0.8ex}\titlerule]
+
+\titleformat{name=\chapter,numberless}[display]
+  {\normalfont\sffamily\bfseries\color{cgidark}}
+  {}
+  {0pt}
+  {\Huge}
+  [\vspace{0.8ex}\titlerule]
+
+\titlespacing*{\chapter}{0pt}{-1.1cm}{1.1cm}
+\titleformat{\section}{\Large\sffamily\bfseries\color{cgidark}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\color{cgiblue}}{\thesubsection}{0.7em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\bfseries\textcolor{cgired}{CGI}}
+\fancyhead[C]{\small\sffamily\nouppercase{\leftmark}}
+\fancyhead[R]{\small\sffamily Migration Factory}
+\fancyfoot[L]{\small\sffamily 2025--2026}
+\fancyfoot[C]{\small\sffamily Projet de Fin d'Études}
+\fancyfoot[R]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0.25pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[L]{\sffamily\bfseries\textcolor{cgired}{CGI}}
+    \fancyhead[R]{\small\sffamily Migration Factory}
+    \fancyfoot[L]{\small\sffamily 2025--2026}
+    \fancyfoot[R]{\small\sffamily\thepage}
+    \renewcommand{\headrulewidth}{0.35pt}
+    \renewcommand{\footrulewidth}{0.25pt}
+}
+
+% ============================================================
+% MÉTADONNÉES DU RAPPORT
+% ============================================================
+\newcommand{\projectname}{Migration Factory}
+\newcommand{\reporttitle}{Conception et développement d'une plateforme\\intelligente, extensible et gouvernée\\pour l'automatisation des migrations logicielles}
+\newcommand{\reportsubtitle}{Cas d'étude Java/Spring Boot et extension du modèle à Angular}
+\newcommand{\studentname}{Abdelilah Mortaki}
+\newcommand{\companyname}{CGI Technologies et Solutions Maroc}
+\newcommand{\schoolname}{École Marocaine des Sciences de l'Ingénieur}
+\newcommand{\companysupervisor}{À compléter}
+\newcommand{\academicsupervisor}{À compléter}
+
+% ============================================================
+% HYPERLIENS — À CHARGER EN FIN DE PRÉAMBULE
+% ============================================================
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+    pdftitle={Migration Factory — Rapport de Projet de Fin d'Études},
+    pdfauthor={Abdelilah Mortaki},
+    pdfsubject={Automatisation gouvernée des migrations logicielles},
+    pdfkeywords={Migration logicielle, modernisation, LLM, agents, Java, Spring Boot, Angular},
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+\begin{document}
+\pagenumbering{gobble}
+
+% ============================================================
+% PAGE DE GARDE
+% ============================================================
+\input{frontmatter/page_garde}
+
+% ============================================================
+% PAGES PRÉLIMINAIRES
+% ============================================================
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\input{intros/dedicace}
+\clearpage
+
+\input{intros/remerciements}
+\clearpage
+
+\input{intros/resume}
+\clearpage
+
+\input{intros/abstract}
+\clearpage
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table des matières}
+\clearpage
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Liste des figures}
+\clearpage
+
+\listoftables
+\addcontentsline{toc}{chapter}{Liste des tableaux}
+\clearpage
+
+\input{intros/acronymes}
+\clearpage
+
+% ============================================================
+% CONTENU PRINCIPAL
+% ============================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{intros/introduction_generale}
+\clearpage
+
+\input{chapitre1/contexte_general}
+\clearpage
+
+% Les chapitres suivants seront activés après validation de leur contenu.
+% \input{chapitre2/etat_art_migration}
+% \input{chapitre3/analyse_besoins_methodologie}
+% \input{chapitre4/architecture_implementation}
+% \input{chapitre5/evolutions_techniques}
+% \input{chapitre6/validation_resultats}
+% \input{conclusion_generale}
+
+\end{document}

@@ -1,0 +1,15 @@
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+La modernisation des applications constitue un enjeu majeur pour les organisations qui exploitent des systèmes développés avec des versions devenues anciennes de langages, de frameworks et de bibliothèques. Malgré l'existence d'outils spécialisés, une grande partie des migrations reste encore réalisée manuellement : compréhension du projet source, identification des incompatibilités, mise à jour des dépendances, transformation du code, compilation, exécution des tests, analyse des erreurs et répétition de nombreux cycles de correction. Cette situation augmente les délais, les coûts et la dépendance à des expertises rares.
+
+Ce projet de fin d'études, réalisé au sein de \textbf{CGI Technologies et Solutions Maroc}, porte sur la conception d'une \textbf{Migration Factory} intelligente, extensible et gouvernée. L'objectif est d'industrialiser le processus de migration logicielle en orchestrant, au sein d'une même plateforme, l'analyse d'une application, la construction d'un chemin de migration, l'exécution de transformations, les phases de build et de test, la collecte de preuves techniques et la production de résultats traçables.
+
+La solution combine des mécanismes déterministes, des agents spécialisés et des grands modèles de langage. Lorsqu'un échec est détecté, un contexte de réparation est construit à partir des erreurs, des fichiers concernés et de l'état du pipeline. Un modèle propose alors une modification sous forme de diff, tandis qu'un second mécanisme de révision contrôle la pertinence et les risques de la proposition. Le développeur conserve l'autorité sur l'approbation, la demande de révision et l'application des changements. Les modifications autorisées sont exécutées dans un workspace isolé avant une nouvelle compilation et une nouvelle validation.
+
+L'architecture est pensée comme une plateforme générique fondée sur des profils de migration. Le profil Java/Spring Boot constitue le premier cas d'étude concret, avec une migration progressive vers des versions modernes de Java et Spring Boot. Un second profil Angular permet d'étudier la généralisation de l'orchestration à un autre écosystème et de préparer la prise en charge future de nouveaux langages et frameworks.
+
+Le résultat attendu est un système capable de réduire l'effort manuel, d'accélérer les cycles de migration, d'améliorer la reproductibilité et de rendre chaque décision vérifiable, sans rechercher une autonomie totale au détriment de la sécurité et du contrôle humain.
+
+\vspace{0.5cm}
+\noindent\textbf{Mots-clés :} Migration logicielle, modernisation applicative, Migration Factory, intelligence artificielle générative, agents logiciels, LLM, Java, Spring Boot, Angular, orchestration, Human-in-the-loop, réparation logicielle.
